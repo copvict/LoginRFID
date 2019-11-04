@@ -2,9 +2,11 @@
 
 Authentication using RFID (Radio-frequency identification) tags. Runs at boot, and/or can be configured to run at terminal sessions.
 
-## Scope
+## Working
 
-Using hardware as an authentication factor is likely to be more realiable verus software in today's world. (Ofcourse, until you don't lose it!)
+Master tag is used to generate a MD5 hash which then can be cloned to non master tags. The hash is generated using the **master tag's UID, MAC address of the device, and timestamp**. The hash is stored onto a file which contains the hash with a signature. While reading, the reading script checks for valid hash before reading tags. To avoid keyboard interrupts, when exceptions are raised, it loops the script. Upon verifying, script is exited. 
+
+Using hardware as an authentication factor is likely to be more realiable verus software in today's world. (Ofcourse, until they aren't lose!)
 
 ## Future Improvements
 
@@ -14,7 +16,7 @@ Using hardware as an authentication factor is likely to be more realiable verus 
 
 ## Demo
 
-<img src="https://dhivakar.xyz/HTerMinaL.gif">
+<img src="https://dhivakar.xyz/LoginRFID.gif" width="50%" height="50%">
 NOTE: I have mapped the script to run at every SSH session. (I'm aware this kills the whole point of remote connection, but I only intented to use it as a test environment.)
 
 ## Built Using
@@ -22,17 +24,27 @@ NOTE: I have mapped the script to run at every SSH session. (I'm aware this kill
 * [Python](https://www.python.org/)
 * [Bash](https://www.gnu.org/software/bash/)
 
+## Connections
+
+On your RFID RC522 you will notice that there are 8 possible connections on it, these being SDA (Serial Data Signal), SCK (Serial Clock), MOSI (Master Out Slave In), MISO (Master In Slave Out), IRQ (Interrupt Request), GND (Ground Power), RST (Reset-Circuit) and 3.3v (3.3v Power In). We will need to wire all of these but the IRQ to our Raspberry Pi’s GPIO pins.
+
+| Module Pin Name | Module Physical Pin |    RPi Pin Name   | RPi Physical Pin |
+|       ---       |         ---         |      ---          |        ---       |
+| **SDA**         | 1                   | GPOI 8(SPI_CE0)   | **24**           |
+| **SCK**         | 2                   | GPOI 11(SPI_SCLK) | **23**           |
+| **MOSI**        | 3                   | GPOI 10(SPI_MOSI) | **19**           |
+| **MISO**        | 4                   | GPOI 9(SPI_MISO   | **21**           |
+| **IRQ**         | 5                   | ---               | **---**          |
+| **GND**         | 6                   | GND               | **6**            |
+| **RST**         | 7                   | GPOI 25           | **22**           |
+| **3.3V**        | 8                   | 3.3v              | **1**            |
+
 ## Usage
 
-**script/script.js**
+Edit the **rc**(**r**un **c**ommands):
+To run the script at **boot**, edit **/etc/rc.local**
+To run the script at **terminal sessions**, edit **$HOME/.bashrc**
 
-- *Line 2:*
-```
-var com="blah blah blah<n woo foo boo<nwoof woof woof.";
-```
-###### use "<n" in the string to break the line as in line 3 
-
-- *Line 25:*
 ```
 domcli.innerHTML+="<p style=\"color:#00ff00; display:inline;\">user@devicename:~$ </p>"+stringArr[i][j++];
 ```
