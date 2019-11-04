@@ -41,14 +41,19 @@ On your RFID RC522 you will notice that there are 8 possible connections on it, 
 
 ## Usage
 
-Edit the **rc**(**r**un **c**ommands):
-To run the script at **boot**, edit **/etc/rc.local**
-To run the script at **terminal sessions**, edit **$HOME/.bashrc**
+**Edit the **rc**(**r**un **c**ommands):**
 
+*To run the script at **boot**, edit **/etc/rc.local***
 ```
-domcli.innerHTML+="<p style=\"color:#00ff00; display:inline;\">user@devicename:~$ </p>"+stringArr[i][j++];
+echo "python3 <path-to-script-file>">>/etc/rc.local
 ```
-###### change "user@devicename:~$ " to customize your own [PS1](https://www.gnu.org/software/bash/manual/bashref.html#index-PS1)
+###### Appends the command to the end of the [rc.local](https://www.raspberrypi.org/documentation/linux/usage/rc-local.md) file
+
+*To run the script at **terminal sessions**, edit **$HOME/.bashrc***
+```
+echo "python3 <path-to-script-file>">>/etc/rc.local
+```
+###### Appends the command to the end of the [.bashrc](https://www.raspberrypi.org/documentation/linux/usage/bashrc.md) file
 
 ## Author
 
