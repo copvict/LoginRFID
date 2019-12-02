@@ -16,7 +16,8 @@ Using hardware as an authentication factor is likely to be more realiable verus 
 
 ## Demo
 
-<img src="https://dhivakar.xyz/LoginRFID.gif" width="50%" height="50%">
+[![demo](https://asciinema.org/a/fya448W8HEdupamxscgRSYzSi.svg)](https://asciinema.org/a/fya448W8HEdupamxscgRSYzSi?autoplay=1)
+
 NOTE: I have mapped the script to run at every SSH session. (I'm aware this kills the whole point of remote connection, but I only intented to use it as a test environment.)
 
 ## Built Using
@@ -41,19 +42,32 @@ On your RFID RC522 you will notice that there are 8 possible connections on it, 
 
 ## Usage
 
-**Edit the **rc**(**r**un **c**ommands):**
+*To generate **hash** and write it to RFID tag*
+```
+python3 <path-to-write.py-file>
+```
+###### hash.dat file will be create in the folder containing write.py
+
+*To **copy/clone** RFID tag*
+```
+python3 <path-to-clone.py-file>
+```
+###### Function will prompt for source and destination tags
+
+**Edit the rc(run commands):**
 
 *To run the script at **boot**, edit **/etc/rc.local***
 ```
-echo "python3 <path-to-script-file>">>/etc/rc.local
+echo "python3 <path-to-read.py-file>">>/etc/rc.local
 ```
 ###### Appends the command to the end of the [rc.local](https://www.raspberrypi.org/documentation/linux/usage/rc-local.md) file
 
 *To run the script at **terminal sessions**, edit **$HOME/.bashrc***
 ```
-echo "python3 <path-to-script-file>">>/etc/rc.local
+echo "python3 <path-to-read.py-file>">>/etc/rc.local
 ```
 ###### Appends the command to the end of the [.bashrc](https://www.raspberrypi.org/documentation/linux/usage/bashrc.md) file
+###### **NOTE: Ensure write.py file is run before read.py and all files (hash.day, write.py, read.py, clone.py) are in the same folder.**
 
 ## Author
 
