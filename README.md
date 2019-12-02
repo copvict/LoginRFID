@@ -47,6 +47,12 @@ python3 <path-to-write.py-file>
 ```
 ###### hash.dat file will be create in the folder containing write.py
 
+*To **test** authentication script*
+```
+python3 <path-to-read.py-file>
+```
+###### keyboardInterrupts are excepted and main function is called forming a loop
+
 *To **copy/clone** RFID tag*
 ```
 python3 <path-to-clone.py-file>
