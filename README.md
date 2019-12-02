@@ -1,6 +1,6 @@
 # LoginRFID
 
-Authentication using RFID (Radio-frequency identification) tags. Runs at boot, and/or can be configured to run at terminal sessions.
+Authentication using RFID (Radio-frequency identification) tags. Runs at boot, and/or can be configured to run at terminal sessions on Raspberry Pi.
 
 ## Working
 
