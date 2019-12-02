@@ -10,15 +10,13 @@ Using hardware as an authentication factor is likely to be more realiable verus 
 
 ## Future Improvements
 
-1. Implement functionality for basic commands such as "help", "ls", and "cd" to emulate the CLI experience.
-2. User input to navigate through a website. 
-3. HackerMode: Random user keystrokes will dump program from a input file.
+1. Implement database connectivity to send and retrieve hashes.
 
 ## Demo
 
 [![demo](https://asciinema.org/a/fya448W8HEdupamxscgRSYzSi.svg)](https://asciinema.org/a/fya448W8HEdupamxscgRSYzSi?autoplay=1)
 
-NOTE: I have mapped the script to run at every SSH session. (I'm aware this kills the whole point of remote connection, but I only intented to use it as a test environment.)
+NOTE: I have mapped the script to run at every SSH session. Kills sessions if authentication fails (I'm aware this kills the whole point of remote connection, but I only intented to use it as a test environment).
 
 ## Built Using
 
@@ -67,7 +65,7 @@ echo "python3 <path-to-read.py-file>">>/etc/rc.local
 echo "python3 <path-to-read.py-file>">>/etc/rc.local
 ```
 ###### Appends the command to the end of the [.bashrc](https://www.raspberrypi.org/documentation/linux/usage/bashrc.md) file
-###### **NOTE: Ensure write.py file is run before read.py and all files (hash.day, write.py, read.py, clone.py) are in the same folder.**
+###### **NOTE: Ensure write.py file is run before read.py and all files (hash.dat, write.py, read.py, clone.py) are in the same folder.**
 
 ## Author
 
