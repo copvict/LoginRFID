@@ -11,6 +11,7 @@ Using hardware as an authentication factor is likely to be more realiable verus 
 ## Future Improvements
 
 1. Implement database connectivity to send and retrieve hashes.
+2. Better exception handling.
 
 ## Demo
 
