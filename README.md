@@ -45,13 +45,13 @@ On your RFID RC522 you will notice that there are 8 possible connections on it, 
 ```
 python3 <path-to-write.py-file>
 ```
-###### hash.dat file will be create in the folder containing write.py
+###### hash.dat file will be created in the folder containing write.py
 
 *To **test** authentication script*
 ```
 python3 <path-to-read.py-file>
 ```
-###### keyboardInterrupts are excepted and main function is called forming a loop
+###### NOTE: keyboardInterrupts are excepted and main function is called forming a loop
 
 *To **copy/clone** RFID tag*
 ```
